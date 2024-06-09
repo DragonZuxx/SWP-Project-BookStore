@@ -3,27 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controllers;
+package CategoryController;
 
-import DAO.BookDAO;
-import DAO.CategoryDAO;
-
+import DAO.BookCategorieDao;
+import DAO.BookDao;
+import DAO.CategoryDao;
+import Models.BookCategories;
 import Models.Books;
 import Models.Categories;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Aplal
  */
-public class HomeServlet extends HttpServlet {
+@WebServlet(name="CategoryController", urlPatterns={"/category"})
+public class CategoryController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -40,10 +43,10 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");  
+            out.println("<title>Servlet CategoryController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet CategoryController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,13 +63,34 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        BookDAO da= new BookDAO();
-        CategoryDAO cda = new CategoryDAO();
-        ArrayList<Categories> category = cda.getCategories();
-        ArrayList<Books> book = da.getBooks();
-        request.setAttribute("book", book);
-        request.setAttribute("category", category);
-        request.getRequestDispatcher("homeView.jsp").forward(request, response);
+        String id = request.getParameter("id");
+        Integer categoryId = Integer.parseInt(id);
+
+        BookDao bd = new BookDao();
+        CategoryDao cd = new CategoryDao();
+        BookCategorieDao bcd = new BookCategorieDao();
+        
+        //Lấy thông tin Category theo id
+         Categories category = cd.getCategoryByID(categoryId);
+        int count = bcd.getBookCategoriesByCategoryID(categoryId).size();
+        //Lấy mảng BookID theo CategoryID
+        ArrayList<BookCategories> bookcategories = bcd.getBookCategoriesByCategoryID(categoryId);
+        List<Books> books = new ArrayList<>();
+        for (BookCategories bookcategory : bookcategories) {
+            Books book = new BookDao().getBookByID(bookcategory.getBookID());
+            books.add(book);
+        }
+        //Lấy mảng Book theo bookcategories
+        ArrayList<String> publishers = bd.getDistinctPublisher();
+        //Set thông tin vào request
+        //int totalPage = (int) Math.ceil((double) books.size() / 6);
+        //request.setAttribute("totalPage", totalPage);
+         request.setAttribute("category", category);
+        request.setAttribute("bookcategories", bookcategories);
+        request.setAttribute("books", books);
+        request.setAttribute("publishers", publishers);
+        request.setAttribute("count_cate", count);
+        request.getRequestDispatcher("categoryView.jsp").forward(request, response);
     } 
 
     /** 
@@ -79,7 +103,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        doGet(request, response);
+        processRequest(request, response);
     }
 
     /** 

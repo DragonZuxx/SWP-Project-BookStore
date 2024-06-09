@@ -2,26 +2,52 @@
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
-        <servlet-class>Controllers.HomeServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginAccountServlet</servlet-name>
-        <servlet-class>Controllers.LoginAccountServlet</servlet-class>
+        <servlet-class>AccountController.HomeServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VerifyOtpServlet</servlet-name>
-        <servlet-class>Controllers.VerifyOtpServlet</servlet-class>
+        <servlet-class>AccountController.VerifyOtpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>AccountController.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutAccount</servlet-name>
+        <servlet-class>AccountController.LogoutAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>AccountController.RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchBookByNameController</servlet-name>
+        <servlet-class>BookController.SearchBookByNameController</servlet-class>
+    </servlet>
+   
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoginAccountServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>VerifyOtpServlet</servlet-name>
         <url-pattern>/verifyotp</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutAccount</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchBookByNameController</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+ 
 </web-app>

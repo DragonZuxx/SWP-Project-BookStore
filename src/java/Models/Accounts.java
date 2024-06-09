@@ -4,112 +4,126 @@
  */
 package Models;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 /**
  *
  * @author Aplal
  */
 public class Accounts {
-    private int ida;
-    private String name, pass, email, fullname, address,phone, role;
-    private Date createdat, updateat;
+
+    private int UserID;
+    private String Username;
+    private String Password;
+    private String Email;
+    private String FullName;
+    private String Address;
+    private String Phone;
+    private int RoleID;
+    private LocalDateTime CreatedAt;
+    private LocalDateTime UpdatedAt;
 
     public Accounts() {
     }
 
-    public Accounts(int ida, String name, String pass, String email, String fullname, String address, String phone, String role, Date createdat, Date updateat) {
-        this.ida = ida;
-        this.name = name;
-        this.pass = pass;
-        this.email = email;
-        this.fullname = fullname;
-        this.address = address;
-        this.phone = phone;
-        this.role = role;
-        this.createdat = createdat;
-        this.updateat = updateat;
+    public Accounts(int UserID, String Username, String Password, String Email, String FullName, String Address, String Phone, int RoleID, LocalDateTime CreatedAt, LocalDateTime UpdatedAt) {
+        this.UserID = UserID;
+        this.Username = Username;
+        this.Password = Password;
+        this.Email = Email;
+        this.FullName = FullName;
+        this.Address = Address;
+        this.Phone = Phone;
+        this.RoleID = RoleID;
+        this.CreatedAt = CreatedAt;
+        this.UpdatedAt = UpdatedAt;
     }
 
-    public int getIda() {
-        return ida;
+    public int getUserID() {
+        return UserID;
     }
 
-    public void setIda(int ida) {
-        this.ida = ida;
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return Username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String Username) {
+        this.Username = Username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return FullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String FullName) {
+        this.FullName = FullName;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 
     public String getPhone() {
-        return phone;
+        return Phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String Phone) {
+        this.Phone = Phone;
     }
 
-    public String getRole() {
-        return role;
+    public int getRoleID() {
+        return RoleID;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoleID(int RoleID) {
+        this.RoleID = RoleID;
     }
 
-    public Date getCreatedat() {
-        return createdat;
+    public LocalDateTime getCreatedAt() {
+        return CreatedAt;
     }
 
-    public void setCreatedat(Date createdat) {
-        this.createdat = createdat;
+    public void setCreatedAt(LocalDateTime CreatedAt) {
+        this.CreatedAt = CreatedAt;
     }
 
-    public Date getUpdateat() {
-        return updateat;
+    public LocalDateTime getUpdatedAt() {
+        return UpdatedAt;
     }
 
-    public void setUpdateat(Date updateat) {
-        this.updateat = updateat;
+    public void setUpdatedAt(LocalDateTime UpdatedAt) {
+        this.UpdatedAt = UpdatedAt;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Accounts{" + "UserID=" + UserID + ", Username=" + Username + ", Password=" + Password + ", Email=" + Email + ", FullName=" + FullName + ", Address=" + Address + ", Phone=" + Phone + ", RoleID=" + RoleID + ", CreatedAt=" + CreatedAt + ", UpdatedAt=" + UpdatedAt + '}';
+    }
+
     
 }

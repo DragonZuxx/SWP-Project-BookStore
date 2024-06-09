@@ -4,7 +4,7 @@
  */
 package Models;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -12,120 +12,158 @@ import java.util.Date;
  */
 public class Books {
 
-    private int id;
-    private String title, publisher, publicationdate, isbn, price;
-    private int stock;
-    private String description, coverimage;
-    private Date createdat, updateat;
+    private int BookID;
+    private String Title;
+    private String Publisher;
+    private String PublicationDate;
+    private String ISBN;
+    private String Price;
+    private int Stock;
+    private int SoldQuantity;
+    private String Description;
+    private String CoverImage;
+    private Boolean IsAvailable;
+    private Boolean IsBanned;
+    private LocalDateTime CreatedAt;
+    private LocalDateTime UpdatedAt;
 
     public Books() {
     }
 
-    public Books(int id, String title, String publisher, String publicationdate, String isbn, String price, int stock, String description, String coverimage, Date createdat, Date updateat) {
-        this.id = id;
-        this.title = title;
-        this.publisher = publisher;
-        this.publicationdate = publicationdate;
-        this.isbn = isbn;
-        this.price = price;
-        this.stock = stock;
-        this.description = description;
-        this.coverimage = coverimage;
-        this.createdat = createdat;
-        this.updateat = updateat;
+    public Books(int BookID, String Title, String Publisher, String PublicationDate, String ISBN, String Price, int Stock, int SoldQuantity, String Description, String CoverImage, Boolean IsAvailable, Boolean IsBanned, LocalDateTime CreatedAt, LocalDateTime UpdatedAt) {
+        this.BookID = BookID;
+        this.Title = Title;
+        this.Publisher = Publisher;
+        this.PublicationDate = PublicationDate;
+        this.ISBN = ISBN;
+        this.Price = Price;
+        this.Stock = Stock;
+        this.SoldQuantity = SoldQuantity;
+        this.Description = Description;
+        this.CoverImage = CoverImage;
+        this.IsAvailable = IsAvailable;
+        this.IsBanned = IsBanned;
+        this.CreatedAt = CreatedAt;
+        this.UpdatedAt = UpdatedAt;
     }
 
-    public int getId() {
-        return id;
+    public int getBookID() {
+        return BookID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBookID(int BookID) {
+        this.BookID = BookID;
     }
 
     public String getTitle() {
-        return title;
+        return Title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String Title) {
+        this.Title = Title;
     }
 
     public String getPublisher() {
-        return publisher;
+        return Publisher;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setPublisher(String Publisher) {
+        this.Publisher = Publisher;
     }
 
-    public String getPublicationdate() {
-        return publicationdate;
+    public String getPublicationDate() {
+        return PublicationDate;
     }
 
-    public void setPublicationdate(String publicationdate) {
-        this.publicationdate = publicationdate;
+    public void setPublicationDate(String PublicationDate) {
+        this.PublicationDate = PublicationDate;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getISBN() {
+        return ISBN;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
     public String getPrice() {
-        return price;
+        return Price;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setPrice(String Price) {
+        this.Price = Price;
     }
 
     public int getStock() {
-        return stock;
+        return Stock;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setStock(int Stock) {
+        this.Stock = Stock;
+    }
+
+    public int getSoldQuantity() {
+        return SoldQuantity;
+    }
+
+    public void setSoldQuantity(int SoldQuantity) {
+        this.SoldQuantity = SoldQuantity;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
-    public String getCoverimage() {
-        return coverimage;
+    public String getCoverImage() {
+        return CoverImage;
     }
 
-    public void setCoverimage(String coverimage) {
-        this.coverimage = coverimage;
+    public void setCoverImage(String CoverImage) {
+        this.CoverImage = CoverImage;
     }
 
-    public Date getCreatedat() {
-        return createdat;
+    public Boolean getIsAvailable() {
+        return IsAvailable;
     }
 
-    public void setCreatedat(Date createdat) {
-        this.createdat = createdat;
+    public void setIsAvailable(Boolean IsAvailable) {
+        this.IsAvailable = IsAvailable;
     }
 
-    public Date getUpdateat() {
-        return updateat;
+    public Boolean getIsBanned() {
+        return IsBanned;
     }
 
-    public void setUpdateat(Date updateat) {
-        this.updateat = updateat;
+    public void setIsBanned(Boolean IsBanned) {
+        this.IsBanned = IsBanned;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return CreatedAt;
+    }
+
+    public void setCreatedAt(LocalDateTime CreatedAt) {
+        this.CreatedAt = CreatedAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return UpdatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime UpdatedAt) {
+        this.UpdatedAt = UpdatedAt;
     }
 
     @Override
     public String toString() {
-        return "Books{" + "id=" + id + ", title=" + title + ", publisher=" + publisher + ", publicationdate=" + publicationdate + ", isbn=" + isbn + ", price=" + price + ", stock=" + stock + ", description=" + description + ", coverimage=" + coverimage + ", createdat=" + createdat + ", updateat=" + updateat + '}';
+        return "Books{" + "BookID=" + BookID + ", Title=" + Title + ", Publisher=" + Publisher + ", PublicationDate=" + PublicationDate + ", ISBN=" + ISBN + ", Price=" + Price + ", Stock=" + Stock + ", SoldQuantity=" + SoldQuantity + ", Description=" + Description + ", CoverImage=" + CoverImage + ", IsAvailable=" + IsAvailable + ", IsBanned=" + IsBanned + ", CreatedAt=" + CreatedAt + ", UpdatedAt=" + UpdatedAt + '}';
     }
 
+    
+    
 }

@@ -4,27 +4,28 @@
  */
 package Models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
  *
  * @author Aplal
  */
-public class Categories {
-
+public class BookCategories {
+    private int BookID;
     private int CategoryID;
-    private String CategoryName;
     private LocalDateTime CreatedAt;
     private LocalDateTime UpdatedAt;
 
-    public Categories() {
+    public BookCategories() {
     }
 
-    public Categories(int CategoryID, String CategoryName, LocalDateTime CreatedAt, LocalDateTime UpdatedAt) {
-        this.CategoryID = CategoryID;
-        this.CategoryName = CategoryName;
-        this.CreatedAt = CreatedAt;
-        this.UpdatedAt = UpdatedAt;
+    public int getBookID() {
+        return BookID;
+    }
+
+    public void setBookID(int BookID) {
+        this.BookID = BookID;
     }
 
     public int getCategoryID() {
@@ -33,14 +34,6 @@ public class Categories {
 
     public void setCategoryID(int CategoryID) {
         this.CategoryID = CategoryID;
-    }
-
-    public String getCategoryName() {
-        return CategoryName;
-    }
-
-    public void setCategoryName(String CategoryName) {
-        this.CategoryName = CategoryName;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -61,9 +54,8 @@ public class Categories {
 
     @Override
     public String toString() {
-        return "Categories{" + "CategoryID=" + CategoryID + ", CategoryName=" + CategoryName + ", CreatedAt=" + CreatedAt + ", UpdatedAt=" + UpdatedAt + '}';
+        return "BookCategories{" + "BookID=" + BookID + ", CategoryID=" + CategoryID + ", CreatedAt=" + CreatedAt + ", UpdatedAt=" + UpdatedAt + '}';
     }
-
     
     
 }
