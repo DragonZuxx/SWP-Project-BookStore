@@ -5,7 +5,6 @@
 package DAO;
 
 import DAL.DBContext;
-
 import Models.Categories;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
